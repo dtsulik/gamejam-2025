@@ -433,9 +433,11 @@ height = 18.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 z_index = 100
+position = Vector2(160, -91)
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-159, 87)
 sprite_frames = SubResource("SpriteFrames_fjrip")
 animation = &"grab"
 autoplay = "idle"
@@ -443,8 +445,9 @@ frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 3)
+position = Vector2(-160, 91)
 shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-160, 91)
 zoom = Vector2(6, 6)
