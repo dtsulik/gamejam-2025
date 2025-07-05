@@ -11,6 +11,8 @@ var dash_timer := 0.0
 var last_direction := 1  # 1 = right, -1 = left
 var can_air_dash := true
 
+var can_double_jump := true  # Track double jump availability
+
 func _physics_process(delta):
 	var direction := 0
 
@@ -46,8 +48,17 @@ func _physics_process(delta):
 
 		if is_on_floor():
 			can_air_dash = true  # Reset air dash on landing
+			can_double_jump = true # Reset double jump on landing
+
 			if Input.is_action_just_pressed("jump"):
 				velocity.y = jump_velocity
+
+		else:
+			# In air - allow double jump if available
+			if Input.is_action_just_pressed("jump") and can_double_jump:
+				velocity.y = jump_velocity
+				can_double_jump = false
+				$AnimatedSprite2D.play("double_jump")  # Play double jump animation
 
 	# Apply gravity only when not dashing
 	if not is_on_floor() and not is_dashing:
@@ -64,7 +75,9 @@ func _physics_process(delta):
 		sprite.flip_h = last_direction < 0
 	elif not is_on_floor():
 		if velocity.y < 0:
-			sprite.play("jump")
+			# Only play jump animation if not double jumping
+			if sprite.animation != "double_jump":
+				sprite.play("jump")
 		else:
 			sprite.play("fall")
 	elif velocity.x != 0:
