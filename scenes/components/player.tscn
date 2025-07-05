@@ -1,6 +1,6 @@
-[gd_scene load_steps=64 format=3 uid="uid://dvuhonuwamvk3"]
+[gd_scene load_steps=64 format=3 uid="uid://d23fpdac22dyt"]
 
-[ext_resource type="Script" uid="uid://4recusy0itkw" path="res://scenes/player.gd" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://4recusy0itkw" path="res://scenes/components/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://3l4w5vylp2k" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_1_Cat_Idle-Sheet.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://bwhlcmmshtrf6" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_4_Cat_Fall-Sheet.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bef3gmr4bss8x" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_6_Cat_Dash-Sheet.png" id="2_tuyoq"]
@@ -445,3 +445,6 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_smehm")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(6, 6)
