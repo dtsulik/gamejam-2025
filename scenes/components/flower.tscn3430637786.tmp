@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbg61bd0sfji0"]
+
+[ext_resource type="Texture2D" uid="uid://s4irqa8bejnm" path="res://assets/environment/oak_woods_v1.0/decorations/flowers.png" id="1_74udy"]
+[ext_resource type="Script" uid="uid://oyg6qnfjhoqs" path="res://scripts/flower.gd" id="1_m4rnw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d66r6"]
+atlas = ExtResource("1_74udy")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5nnu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d66r6")
+}],
+"loop": true,
+"name": &"red_flower",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ojs6y"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="Gradient" id="Gradient_m4rnw"]
+offsets = PackedFloat32Array(0.285714, 0.603896)
+colors = PackedColorArray(0.727273, 0.727273, 0.727273, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ojs6y"]
+gradient = SubResource("Gradient_m4rnw")
+fill = 1
+fill_from = Vector2(0.481651, 0.541284)
+fill_to = Vector2(1, 0.0642202)
+
+[node name="Flower" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.546144, 0.517809)
+script = ExtResource("1_m4rnw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+self_modulate = Color(2, 2, 2, 1)
+sprite_frames = SubResource("SpriteFrames_y5nnu")
+animation = &"red_flower"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ojs6y")
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D"]
+visible = false
+color = Color(1, 0.392157, 0.392157, 1)
+texture = SubResource("GradientTexture2D_ojs6y")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
