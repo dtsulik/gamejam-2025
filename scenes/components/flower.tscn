@@ -1,9 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbg61bd0sfji0"]
+[gd_scene load_steps=27 format=3 uid="uid://dbg61bd0sfji0"]
 
 [ext_resource type="Texture2D" uid="uid://s4irqa8bejnm" path="res://assets/environment/oak_woods_v1.0/decorations/flowers.png" id="1_74udy"]
 [ext_resource type="Script" uid="uid://oyg6qnfjhoqs" path="res://scripts/flower.gd" id="1_m4rnw"]
 [ext_resource type="Texture2D" uid="uid://botdht22jr744" path="res://assets/effects/Effect and FX Pixel Part 12 Free/566.png" id="3_d66r6"]
 [ext_resource type="Texture2D" uid="uid://did5jevtriqp5" path="res://assets/effects/Effect and FX Pixel Part 12 Free/586.png" id="3_ojs6y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2b5p"]
+atlas = ExtResource("1_74udy")
+region = Rect2(48, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d66r6"]
 atlas = ExtResource("1_74udy")
@@ -11,6 +15,14 @@ region = Rect2(0, 96, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5nnu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2b5p")
+}],
+"loop": true,
+"name": &"blue_flower",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d66r6")
