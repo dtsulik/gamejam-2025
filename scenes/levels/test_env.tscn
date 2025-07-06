@@ -863,5 +863,15 @@ shape = SubResource("WorldBoundaryShape2D_4hnf6")
 stream = ExtResource("9_qxx5k")
 autoplay = true
 
-[node name="blue_flower" parent="." instance=ExtResource("10_7p1ox")]
-position = Vector2(465, -62)
+[node name="blue_flower" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+position = Vector2(515, -63)
+script = null

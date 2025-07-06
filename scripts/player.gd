@@ -13,7 +13,7 @@ extends CharacterBody2D
 # Fireball settings
 @export var fireball_scene: PackedScene
 @export var fireball_speed := 200.0
-@export var fireball_spawn_offset := 40.0
+@export var fireball_spawn_offset := 30.0
 
 var has_fireball_ability := false
 var fireball_count := 0
