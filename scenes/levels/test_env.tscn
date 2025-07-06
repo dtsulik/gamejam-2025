@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4uibngswi232"]
+[gd_scene load_steps=15 format=3 uid="uid://c4uibngswi232"]
 
 [ext_resource type="PackedScene" uid="uid://d23fpdac22dyt" path="res://player.tscn" id="1_yl55h"]
 [ext_resource type="Texture2D" uid="uid://bl8rub6tim37b" path="res://assets/environment/stringstar fields/background_0.png" id="2_po6i2"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ca4is3eeirdsa" path="res://scenes/components/thorn.tscn" id="7_t6xg4"]
 [ext_resource type="PackedScene" uid="uid://cl858d81pfklp" path="res://scenes/components/killzone.tscn" id="8_4hnf6"]
 [ext_resource type="AudioStream" uid="uid://c4bdso5fpw2tp" path="res://assets/Sounds/midnight-forest-184304.mp3" id="9_qxx5k"]
-[ext_resource type="PackedScene" uid="uid://j3bs31rbkmum" path="res://scenes/components/blue_flower.tscn" id="10_7p1ox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfx8k"]
 texture = ExtResource("2_po6i2")
@@ -860,16 +859,3 @@ shape = SubResource("WorldBoundaryShape2D_4hnf6")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_qxx5k")
 autoplay = true
-
-[node name="blue_flower" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(515, -63)
-script = null
