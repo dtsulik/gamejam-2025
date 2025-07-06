@@ -6,9 +6,7 @@ var player_in_range = null
 
 func _ready():
 	set_process_input(false)
-	
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":

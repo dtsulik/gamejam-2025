@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 var direction: float = 1.0
-var speed: float = 400.0
-var lifetime: float = 5.0
+var speed: float = 200.0
+var lifetime: float = 2.0
 var is_exploding: bool = false
 
 func _ready():

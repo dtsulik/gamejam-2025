@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 100.0
-@export var jump_velocity := -300.0
+@export var jump_velocity := -200.0
 @export var gravity := 800.0
 @export var dash_speed := 300.0
 @export var dash_duration := 0.2

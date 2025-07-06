@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4is3eeirdsa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rjqd1"]
+load_path = "res://.godot/imported/ChatGPT Image Jul 6, 2025, 11_25_47 AM.png-fd41e0f96515562b65147b0eb10ac2a2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss7ns"]
+atlas = SubResource("CompressedTexture2D_rjqd1")
+region = Rect2(0, 0, 384, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjqd1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss7ns")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Thorn" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rjqd1")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
