@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjn02jlng8c18"]
+[gd_scene load_steps=21 format=3 uid="uid://bjn02jlng8c18"]
 
 [ext_resource type="Texture2D" uid="uid://ckhvsws01w52n" path="res://assets/water/8bit-water-texture-sq.png" id="1_pqahh"]
 [ext_resource type="Texture2D" uid="uid://dxyg0lqijvrk2" path="res://assets/clouds/clouds-v2.png" id="2_kemwe"]
+[ext_resource type="Script" uid="uid://b1m2bqduxvrwf" path="res://scripts/freeze-waterfall.gd" id="3_rstmg"]
+[ext_resource type="Texture2D" uid="uid://dybv73mcy1o1s" path="res://assets/forest/evening/tileset.png" id="4_o2vy0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k5ro"]
 atlas = ExtResource("1_pqahh")
@@ -131,204 +133,363 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kemwe"]
+size = Vector2(29.6494, 20)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o2vy0"]
+texture = ExtResource("4_o2vy0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+9:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+0:10/0 = 0
+0:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6867j"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_o2vy0")
+
 [node name="waterfall" type="Node2D"]
+
+[node name="base" type="Area2D" parent="."]
+
+[node name="left-wave-1" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-19, -6.79493e-05)
 rotation = 1.5708
-
-[node name="left-wave-1" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.30516e-07, 19)
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-A"
 autoplay = "side-waves-A"
 speed_scale = 0.5
 flip_v = true
 
-[node name="left-wave-2" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, 19)
+[node name="left-wave-2" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-19, 7.99993)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-B"
 autoplay = "side-waves-B"
 speed_scale = 0.5
 flip_v = true
 
-[node name="left-wave-3" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 19)
+[node name="left-wave-3" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-19.0001, 15.9999)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-A"
 autoplay = "side-waves-A"
 speed_scale = 0.5
 flip_v = true
 
-[node name="left-wave-4" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, 19)
+[node name="left-wave-4" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-19.0001, 23.9999)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-B"
 autoplay = "side-waves-B"
 speed_scale = 0.5
 flip_v = true
 
-[node name="right-wave-1" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9.17939e-07, -21)
+[node name="right-wave-1" type="AnimatedSprite2D" parent="base"]
+position = Vector2(21, 7.51019e-05)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-B"
 autoplay = "side-waves-B"
 speed_scale = 0.5
 
-[node name="right-wave-2" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -21)
+[node name="right-wave-2" type="AnimatedSprite2D" parent="base"]
+position = Vector2(21, 8.00008)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-B"
 autoplay = "side-waves-A"
 speed_scale = 0.5
 
-[node name="right-wave-3" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, -21)
+[node name="right-wave-3" type="AnimatedSprite2D" parent="base"]
+position = Vector2(20.9999, 16.0001)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-B"
 autoplay = "side-waves-B"
 speed_scale = 0.5
 
-[node name="right-wave-4" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, -21)
+[node name="right-wave-4" type="AnimatedSprite2D" parent="base"]
+position = Vector2(20.9999, 24.0001)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_awghr")
 animation = &"side-waves-A"
 autoplay = "side-waves-A"
 speed_scale = 0.5
 
-[node name="inside-waves-1" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 3)
+[node name="inside-waves-1" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-3, -1.086e-05)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 flip_v = true
 
-[node name="inside-waves-2" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, 3)
+[node name="inside-waves-2" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-3.00003, 7.99999)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 flip_v = true
 
-[node name="inside-waves-3" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 3)
+[node name="inside-waves-3" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-3.00006, 16)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 flip_v = true
 
-[node name="inside-waves-4" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, 3)
+[node name="inside-waves-4" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-3.00009, 24)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 flip_v = true
 
-[node name="inside-waves-5" type="AnimatedSprite2D" parent="."]
-position = Vector2(9.53674e-07, 11)
+[node name="inside-waves-5" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-11, -3.88662e-05)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-A"
 autoplay = "inside-waves-A"
 
-[node name="inside-waves-6" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, 11)
+[node name="inside-waves-6" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-11, 7.99996)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-A"
 autoplay = "inside-waves-A"
 
-[node name="inside-waves-7" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 11)
+[node name="inside-waves-7" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-11.0001, 16)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-A"
 autoplay = "inside-waves-A"
 
-[node name="inside-waves-8" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, 11)
+[node name="inside-waves-8" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-11.0001, 24)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-A"
 autoplay = "inside-waves-A"
 
-[node name="inside-waves-9" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5.68248e-07, -13)
-sprite_frames = SubResource("SpriteFrames_rflv4")
-animation = &"inside-waves-A"
-autoplay = "inside-waves-A"
-flip_v = true
-
-[node name="inside-waves-10" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -13)
-sprite_frames = SubResource("SpriteFrames_rflv4")
-animation = &"inside-waves-A"
-autoplay = "inside-waves-A"
-flip_v = true
-
-[node name="inside-waves-11" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, -13)
+[node name="inside-waves-9" type="AnimatedSprite2D" parent="base"]
+position = Vector2(13, 4.64916e-05)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-A"
 autoplay = "inside-waves-A"
 flip_v = true
 
-[node name="inside-waves-12" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, -13)
+[node name="inside-waves-10" type="AnimatedSprite2D" parent="base"]
+position = Vector2(13, 8.00005)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-A"
 autoplay = "inside-waves-A"
 flip_v = true
 
-[node name="inside-waves-13" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.18557e-07, -5)
+[node name="inside-waves-11" type="AnimatedSprite2D" parent="base"]
+position = Vector2(12.9999, 16)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+flip_v = true
+
+[node name="inside-waves-12" type="AnimatedSprite2D" parent="base"]
+position = Vector2(12.9999, 24)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+flip_v = true
+
+[node name="inside-waves-13" type="AnimatedSprite2D" parent="base"]
+position = Vector2(5, 1.78814e-05)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 
-[node name="inside-waves-14" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -5)
+[node name="inside-waves-14" type="AnimatedSprite2D" parent="base"]
+position = Vector2(4.99997, 8.00002)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 
-[node name="inside-waves-15" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, -5)
+[node name="inside-waves-15" type="AnimatedSprite2D" parent="base"]
+position = Vector2(4.99994, 16)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 
-[node name="inside-waves-16" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, -5)
+[node name="inside-waves-16" type="AnimatedSprite2D" parent="base"]
+position = Vector2(4.99991, 24)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_rflv4")
 animation = &"inside-waves-B"
 autoplay = "inside-waves-B"
 
-[node name="bubbles-1" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.89992, 4.8)
-rotation = -1.5708
+[node name="bubbles-1" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-4.80001, 2.8999)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
 autoplay = "foam-A"
 offset = Vector2(-42, -12)
 
-[node name="bubbles-2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.10008, 7.8)
-rotation = -1.5708
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_ucurs")
-animation = &"foam-A"
-autoplay = "foam-A"
-offset = Vector2(-42, -12)
-flip_v = true
-
-[node name="bubbles-3" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.10008, 0.800003)
-rotation = -1.5708
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_ucurs")
-animation = &"foam-A"
-autoplay = "foam-A"
-offset = Vector2(-42, -12)
-
-[node name="bubbles-4" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.89992, -2.2)
-rotation = -1.5708
+[node name="bubbles-2" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-7.8, -1.10011)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
@@ -336,9 +497,16 @@ autoplay = "foam-A"
 offset = Vector2(-42, -12)
 flip_v = true
 
-[node name="bubbles-5" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.20008, -7.4)
-rotation = -1.5708
+[node name="bubbles-3" type="AnimatedSprite2D" parent="base"]
+position = Vector2(-0.799999, -1.10008)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-4" type="AnimatedSprite2D" parent="base"]
+position = Vector2(2.19999, 2.89993)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
@@ -346,18 +514,8 @@ autoplay = "foam-A"
 offset = Vector2(-42, -12)
 flip_v = true
 
-[node name="bubbles-6" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.89992, -10.2)
-rotation = -1.5708
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_ucurs")
-animation = &"foam-A"
-autoplay = "foam-A"
-offset = Vector2(-42, -12)
-
-[node name="bubbles-7" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.20008, -15.4)
-rotation = -1.5708
+[node name="bubbles-5" type="AnimatedSprite2D" parent="base"]
+position = Vector2(7.4, -1.20005)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
@@ -365,9 +523,16 @@ autoplay = "foam-A"
 offset = Vector2(-42, -12)
 flip_v = true
 
-[node name="bubbles-8" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.89984, -19.2)
-rotation = -1.5708
+[node name="bubbles-6" type="AnimatedSprite2D" parent="base"]
+position = Vector2(10.2, 1.89996)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-7" type="AnimatedSprite2D" parent="base"]
+position = Vector2(15.4, -1.20002)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
@@ -375,27 +540,33 @@ autoplay = "foam-A"
 offset = Vector2(-42, -12)
 flip_v = true
 
-[node name="bubbles-9" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.10008, -23.2)
-rotation = -1.5708
+[node name="bubbles-8" type="AnimatedSprite2D" parent="base"]
+position = Vector2(19.2, 2.89991)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-9" type="AnimatedSprite2D" parent="base"]
+position = Vector2(23.2, -2.1)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
 autoplay = "foam-A"
 offset = Vector2(-42, -12)
 
-[node name="bubbles-10" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.89981, -28.2)
-rotation = -1.5708
+[node name="bubbles-10" type="AnimatedSprite2D" parent="base"]
+position = Vector2(28.2, 1.89991)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
 autoplay = "foam-A"
 offset = Vector2(-42, -12)
 
-[node name="bubbles-11" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.899808, -29.2)
-rotation = -1.5708
+[node name="bubbles-11" type="AnimatedSprite2D" parent="base"]
+position = Vector2(29.2, 0.899914)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
@@ -404,27 +575,24 @@ frame = 1
 frame_progress = 0.13612
 offset = Vector2(-42, -12)
 
-[node name="bubbles-12" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.89979, -34.2)
-rotation = -1.5708
+[node name="bubbles-12" type="AnimatedSprite2D" parent="base"]
+position = Vector2(34.2, 1.89991)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
 autoplay = "foam-A"
 offset = Vector2(-42, -12)
 
-[node name="bubbles-13" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.10022, -36.2)
-rotation = -1.5708
+[node name="bubbles-13" type="AnimatedSprite2D" parent="base"]
+position = Vector2(36.2, -1.10009)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
 autoplay = "foam-A"
 offset = Vector2(-42, -12)
 
-[node name="bubbles-14" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.1002, -30.2)
-rotation = -1.5708
+[node name="bubbles-14" type="AnimatedSprite2D" parent="base"]
+position = Vector2(30.2, -1.10009)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
@@ -432,12 +600,24 @@ autoplay = "foam-A"
 offset = Vector2(-42, -12)
 flip_v = true
 
-[node name="bubbles-15" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.899848, -18.2)
-rotation = -1.5708
+[node name="bubbles-15" type="AnimatedSprite2D" parent="base"]
+position = Vector2(18.2, 0.899914)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ucurs")
 animation = &"foam-A"
 autoplay = "foam-A"
 offset = Vector2(-42, -12)
 flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="base"]
+position = Vector2(0.999995, 9.64409)
+rotation = 1.5708
+scale = Vector2(1.25764, 2.38853)
+shape = SubResource("RectangleShape2D_kemwe")
+script = ExtResource("3_rstmg")
+
+[node name="walkable" type="TileMap" parent="base"]
+z_index = -4
+tile_set = SubResource("TileSet_6867j")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 0, 9, 65535, 0, 9, 0, 0, 9, 1, 0, 9)

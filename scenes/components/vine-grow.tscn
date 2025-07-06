@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8bd2sbmu4lmc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkhc8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[node name="Vine-grow" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mkhc8")
+animation = &"grow"
