@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6ah73iutwofq"]
+
+[ext_resource type="Texture2D" uid="uid://cc8a0va2geti1" path="res://assets/environment/stringstar fields/tileset.png" id="1_jibo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqu2r"]
+size = Vector2(78, 8)
+
+[sub_resource type="Animation" id="Animation_jibo3"]
+resource_name = "move_loop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(137, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aqu2r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83u3d"]
+_data = {
+&"RESET": SubResource("Animation_aqu2r"),
+&"move_loop": SubResource("Animation_jibo3")
+}
+
+[node name="MovablePlatform" type="AnimatableBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jibo3")
+region_enabled = true
+region_rect = Rect2(80, 64, 80, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_aqu2r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_83u3d")
+}
