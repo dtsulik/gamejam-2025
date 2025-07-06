@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://cundovoyleuu"]
+
+[ext_resource type="Script" uid="uid://cd1yjr2dn7h75" path="res://scripts/fireball.gd" id="1_djuyn"]
+[ext_resource type="Texture2D" uid="uid://botdht22jr744" path="res://assets/effects/Effect and FX Pixel Part 12 Free/566.png" id="2_4eyj3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3s14c"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djuyn"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqtg6"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nagq"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kqu4"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0hma"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nquky"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq63n"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veqn6"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtpqe"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(512, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gv1y"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(576, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc2l2"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(640, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8lfx"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(704, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1njc4"]
+atlas = ExtResource("2_4eyj3")
+region = Rect2(768, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7iiyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djuyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqtg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nagq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kqu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nquky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq63n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veqn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtpqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gv1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc2l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8lfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1njc4")
+}],
+"loop": true,
+"name": &"freeze",
+"speed": 16.0
+}]
+
+[node name="FireBall" type="CharacterBody2D"]
+script = ExtResource("1_djuyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -1.16415e-10)
+rotation = 1.57117
+shape = SubResource("CapsuleShape2D_3s14c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7iiyt")
+animation = &"freeze"
+frame_progress = 0.234588

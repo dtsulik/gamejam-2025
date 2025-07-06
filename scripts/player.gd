@@ -2,6 +2,9 @@
 
 extends CharacterBody2D
 
+# FIX: Corrected path for jump_sound, assuming sfx_jump is a direct child.
+@onready var jump_sound = $sfx_jump # Changed from $player/sfx_jump
+
 @export var speed := 100.0
 @export var jump_velocity := -200.0
 @export var gravity := 800.0
@@ -19,7 +22,7 @@ var max_fireball_count := 5
 
 var is_dashing := false
 var dash_timer := 0.0
-var last_direction := 1  
+var last_direction := 1
 var can_air_dash := true
 var can_double_jump := true
 
@@ -56,9 +59,13 @@ func _physics_process(delta):
 			can_double_jump = true
 			if Input.is_action_just_pressed("jump"):
 				velocity.y = jump_velocity
+				if jump_sound: # Added null check for safety
+					jump_sound.play()
 		else:
 			if Input.is_action_just_pressed("jump") and can_double_jump:
 				velocity.y = jump_velocity
+				if jump_sound: # Added null check for safety
+					jump_sound.play()
 				can_double_jump = false
 				$AnimatedSprite2D.play("double_jump")
 
@@ -90,8 +97,12 @@ func shoot_fireball():
 		return
 
 	var fireball = fireball_scene.instantiate()
-	var sprite_center = global_position + $AnimatedSprite2D.position
-	var spawn_position = sprite_center + Vector2(fireball_spawn_offset * last_direction, 0)
+	# Ensure $AnimatedSprite2D exists and is properly configured
+	var sprite_node = $AnimatedSprite2D
+	var spawn_position = global_position
+	if is_instance_valid(sprite_node):
+		spawn_position = global_position + sprite_node.position
+	spawn_position.x += fireball_spawn_offset * last_direction
 
 	fireball.global_position = spawn_position
 	fireball.setup(last_direction, fireball_speed)
@@ -106,5 +117,9 @@ func pickup_red_flower():
 	print("Red flower picked up! Fireball ability granted!")
 
 func pickup_blue_flower():
+	# Example: Blue flower could give a temporary shield or other buff
 	print("Blue flower picked up! Granting BLUE power here!")
-	# TODO: Add actual blue power logic here (e.g., shield, freeze, etc.)
+	# For now, let's say it also gives fireballs if you haven't maxed out
+	has_fireball_ability = true
+	fireball_count = min(fireball_count + 2, max_fireball_count)
+	print("Blue flower: Fireball count increased to ", fireball_count)
