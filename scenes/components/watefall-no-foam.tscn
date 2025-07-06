@@ -1,0 +1,259 @@
+[gd_scene load_steps=12 format=3 uid="uid://wk64hjvqlsmk"]
+
+[ext_resource type="Texture2D" uid="uid://ckhvsws01w52n" path="res://assets/water/8bit-water-texture-sq.png" id="1_ure5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k5ro"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnsb4"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_144ce"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydcgj"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awghr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_144ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydcgj")
+}],
+"loop": true,
+"name": &"side-waves",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_144ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydcgj")
+}],
+"loop": true,
+"name": &"side-waves_1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxyp"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awghr"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dspej"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23l4p"]
+atlas = ExtResource("1_ure5k")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rflv4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awghr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dspej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23l4p")
+}],
+"loop": true,
+"name": &"inside-waves",
+"speed": 5.0
+}]
+
+[node name="waterfall" type="Node2D"]
+rotation = 1.5708
+
+[node name="left-wave-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.30516e-07, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+flip_v = true
+
+[node name="left-wave-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves_1"
+autoplay = "side-waves"
+speed_scale = 0.5
+flip_v = true
+
+[node name="left-wave-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+flip_v = true
+
+[node name="left-wave-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+flip_v = true
+
+[node name="right-wave-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.17939e-07, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+
+[node name="right-wave-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+
+[node name="right-wave-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+
+[node name="right-wave-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves"
+autoplay = "side-waves"
+speed_scale = 0.5
+
+[node name="inside-waves-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-5" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-6" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-7" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-8" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-9" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.68248e-07, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-10" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-11" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-12" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+flip_v = true
+
+[node name="inside-waves-13" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.18557e-07, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-14" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-15" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
+
+[node name="inside-waves-16" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves"
+autoplay = "inside-waves"
