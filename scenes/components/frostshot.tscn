@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cundovoyleuu"]
 
-[ext_resource type="Script" uid="uid://cd1yjr2dn7h75" path="res://scripts/fireball.gd" id="1_djuyn"]
+[ext_resource type="Script" uid="uid://qvl3pbnhef1b" path="res://scripts/frostshot.gd" id="1_4eyj3"]
 [ext_resource type="Texture2D" uid="uid://botdht22jr744" path="res://assets/effects/Effect and FX Pixel Part 12 Free/566.png" id="2_4eyj3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3s14c"]
@@ -101,13 +101,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1njc4")
 }],
-"loop": true,
+"loop": false,
 "name": &"freeze",
 "speed": 16.0
 }]
 
-[node name="FireBall" type="CharacterBody2D"]
-script = ExtResource("1_djuyn")
+[node name="frostshot" type="CharacterBody2D"]
+script = ExtResource("1_4eyj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, -1.16415e-10)
@@ -119,4 +119,4 @@ position = Vector2(-3, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_7iiyt")
 animation = &"freeze"
-frame_progress = 0.234588
+frame_progress = 0.224606
