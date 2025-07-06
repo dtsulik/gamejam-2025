@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pbeg2bqs6ony" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_13_Cat_Double_Jump-Sheet.png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://b8g8tiktsp11u" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_2_Cat_Run-Sheet.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cundovoyleuu" path="res://scenes/components/frostshot.tscn" id="3_urp6f"]
-[ext_resource type="PackedScene" uid="uid://djy23wiury0y7" path="res://scenes/components/wind-push.tscn" id="4_bwjto"]
+[ext_resource type="PackedScene" path="res://scenes/components/wind-push.tscn" id="4_bwjto"]
 [ext_resource type="Texture2D" uid="uid://dib6ayoybolpf" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_18_Cat_Death-Sheet.png" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://e4hko18ru1f7" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_3_Cat_Jump-Sheet.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://lo0corxqechl" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_20_Cat_Pull-Sheet.png" id="7_ur7pv"]
