@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var jump_sound = $sfx_jump
 @onready var attack_sound = $sfx_attack
+@onready var fire_sound = $sfx_fire
+@onready var sfx_move: AudioStreamPlayer = $sfx_move
 
 @export var speed := 100.0
 @export var jump_velocity := -200.0
@@ -19,7 +21,7 @@ extends CharacterBody2D
 @export var frostshot_speed := 100.0
 @export var frostshot_spawn_offset := 10.0
 
-# Frostshot
+# Wind
 @export var wind_scene: PackedScene
 @export var wind_speed := 100.0
 @export var wind_spawn_offset := 10.0
@@ -56,30 +58,18 @@ func _physics_process(delta):
 
 	# Fireball
 	if Input.is_action_just_pressed("fire"):
-		print("DEBUG: Fire key pressed")
 		if has_fireball_ability:
-			print("DEBUG: Fireball ability active")
 			shoot_fireball()
-		else:
-			print("DEBUG: No fireball ability")
 
 	# Frostshot
 	if Input.is_action_just_pressed("frost"):
-		print("DEBUG: Frost key pressed")
 		if has_frostshot_ability:
-			print("DEBUG: Frostshot ability active")
 			shoot_frostshot()
-		else:
-			print("DEBUG: No frostshot ability")
 
-	# Frostshot
+	# Wind
 	if Input.is_action_just_pressed("wind-push"):
-		print("DEBUG: Wind key pressed")
 		if has_wind_ability:
-			print("DEBUG: Wind ability active")
 			shoot_wind()
-		else:
-			print("DEBUG: No wind ability")
 
 	# Dash
 	if Input.is_action_just_pressed("dash") and not is_dashing:
@@ -118,6 +108,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	update_animation()
+	update_move_sound(direction)
 
 func update_animation():
 	var sprite = $AnimatedSprite2D
@@ -136,9 +127,16 @@ func update_animation():
 	else:
 		sprite.play("idle")
 
+func update_move_sound(direction):
+	if is_on_floor() and direction != 0 and not is_dashing:
+		if not sfx_move.playing:
+			sfx_move.play()
+	else:
+		if sfx_move.playing:
+			sfx_move.stop()
+
 func shoot_fireball():
 	if not has_fireball_ability or fireball_count <= 0 or fireball_scene == null:
-		print("DEBUG: Cannot shoot fireball")
 		return
 
 	var fireball = fireball_scene.instantiate()
@@ -150,15 +148,13 @@ func shoot_fireball():
 	fireball.setup(last_direction, fireball_speed)
 
 	get_tree().current_scene.add_child(fireball)
-	if attack_sound:
-		attack_sound.play()
-	
+	if fire_sound:
+		fire_sound.play()
+
 	fireball_count -= 1
-	print("DEBUG: Fireball shot, remaining:", fireball_count)
 
 func shoot_frostshot():
 	if not has_frostshot_ability or frostshot_count <= 0 or frostshot_scene == null:
-		print("DEBUG: Cannot shoot frostshot")
 		return
 
 	var frost = frostshot_scene.instantiate()
@@ -174,11 +170,9 @@ func shoot_frostshot():
 		attack_sound.play()
 
 	frostshot_count -= 1
-	print("DEBUG: Frostshot fired, remaining:", frostshot_count)
 
 func shoot_wind():
 	if not has_wind_ability or wind_count <= 0 or wind_scene == null:
-		print("DEBUG: Cannot shoot wind")
 		return
 
 	var wind = wind_scene.instantiate()
@@ -194,20 +188,15 @@ func shoot_wind():
 		attack_sound.play()
 
 	wind_count -= 1
-	print("DEBUG: Wind fired, remaining:", wind_count)
 
-# Power pickups
 func pickup_red_flower():
 	has_fireball_ability = true
 	fireball_count = max_fireball_count
-	print("Red flower picked up! Fireball ability granted!")
 
 func pickup_blue_flower():
 	has_frostshot_ability = true
 	frostshot_count = max_frostshot_count
-	print("Blue flower picked up! Frostshot ability granted with", frostshot_count, "shots")
 
 func pickup_wind_flower():
 	has_wind_ability = true
 	wind_count = max_wind_count
-	print("Wind flower picked up! Wind ability granted with", wind_count, "shots")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbg61bd0sfji0"]
+[gd_scene load_steps=27 format=3 uid="uid://dbg61bd0sfji0"]
 
 [ext_resource type="Texture2D" uid="uid://s4irqa8bejnm" path="res://assets/environment/oak_woods_v1.0/decorations/flowers.png" id="1_74udy"]
 [ext_resource type="Script" uid="uid://oyg6qnfjhoqs" path="res://scripts/flower.gd" id="1_m4rnw"]
 [ext_resource type="Texture2D" uid="uid://botdht22jr744" path="res://assets/effects/Effect and FX Pixel Part 12 Free/566.png" id="3_d66r6"]
 [ext_resource type="Texture2D" uid="uid://did5jevtriqp5" path="res://assets/effects/Effect and FX Pixel Part 12 Free/586.png" id="3_ojs6y"]
+[ext_resource type="AudioStream" uid="uid://4rpyet5it7e8" path="res://assets/Sounds/Pickup_Flower.wav" id="3_y5nnu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d66r6"]
 atlas = ExtResource("1_74udy")
@@ -165,6 +166,9 @@ shape = SubResource("CapsuleShape2D_ojs6y")
 visible = false
 color = Color(1, 0.392157, 0.392157, 1)
 texture = SubResource("GradientTexture2D_ojs6y")
+
+[node name="sfx_pickup" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("3_y5nnu")
 
 [node name="VFXSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.373642, 0.381424)

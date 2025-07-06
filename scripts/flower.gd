@@ -6,6 +6,7 @@ extends Area2D
 @export var is_blue_flower: bool = false
 @export var is_wind_flower: bool = false
 @export var pickup_message: String = "Flower collected!"
+@onready var sfx_pickup: AudioStreamPlayer = $sfx_pickup
 
 var can_grab := true
 var cooldown_time := 1.0
@@ -44,8 +45,10 @@ func _input(event: InputEvent):
 			player_in_range.pickup_blue_flower()
 		elif is_wind_flower:
 			player_in_range.pickup_wind_flower()
-
+			
 		create_pickup_vfx()
+		if sfx_pickup:
+			sfx_pickup.play()
 
 		await get_tree().create_timer(cooldown_time).timeout
 		can_grab = true

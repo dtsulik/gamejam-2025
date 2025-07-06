@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d23fpdac22dyt"]
+[gd_scene load_steps=71 format=3 uid="uid://d23fpdac22dyt"]
 
 [ext_resource type="Script" uid="uid://4recusy0itkw" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://3l4w5vylp2k" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_1_Cat_Idle-Sheet.png" id="2_g2els"]
@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://pbeg2bqs6ony" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_13_Cat_Double_Jump-Sheet.png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://b8g8tiktsp11u" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_2_Cat_Run-Sheet.png" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cundovoyleuu" path="res://scenes/components/frostshot.tscn" id="3_urp6f"]
-[ext_resource type="PackedScene" path="res://scenes/components/wind-push.tscn" id="4_bwjto"]
+[ext_resource type="PackedScene" uid="uid://djy23wiury0y7" path="res://scenes/components/wind-push.tscn" id="4_bwjto"]
 [ext_resource type="Texture2D" uid="uid://dib6ayoybolpf" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_18_Cat_Death-Sheet.png" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://e4hko18ru1f7" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_3_Cat_Jump-Sheet.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://lo0corxqechl" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_20_Cat_Pull-Sheet.png" id="7_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://bluqkv6h6u6tm" path="res://assets/Sounds/03_Step_grass_03.wav" id="11_ivps1"]
 [ext_resource type="AudioStream" uid="uid://dlko2w8bew2do" path="res://assets/Sounds/30_Jump_03.wav" id="12_urp6f"]
 [ext_resource type="AudioStream" uid="uid://b2yk36yh3h4fe" path="res://assets/Sounds/56_Attack_03.wav" id="15_606se"]
+[ext_resource type="AudioStream" uid="uid://cbo6bo5fpr4mx" path="res://assets/Sounds/Fire_Skill.wav" id="16_u1c27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
 atlas = ExtResource("2_tuyoq")
@@ -469,9 +470,13 @@ one_shot = true
 
 [node name="sfx_move" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource("11_ivps1")
+volume_db = -10.0
 
 [node name="sfx_jump" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource("12_urp6f")
 
 [node name="sfx_attack" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource("15_606se")
+
+[node name="sfx_fire" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("16_u1c27")
