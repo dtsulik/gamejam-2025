@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bygple03fg7nv"]
+[gd_scene load_steps=21 format=3 uid="uid://bygple03fg7nv"]
 
 [ext_resource type="PackedScene" uid="uid://d23fpdac22dyt" path="res://player.tscn" id="1_wubvj"]
 [ext_resource type="Texture2D" uid="uid://bl8rub6tim37b" path="res://assets/environment/stringstar fields/background_0.png" id="2_wejd8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cl858d81pfklp" path="res://scenes/components/killzone.tscn" id="10_ht1ge"]
 [ext_resource type="PackedScene" uid="uid://ca4is3eeirdsa" path="res://scenes/components/thorn.tscn" id="11_0ev7p"]
 [ext_resource type="PackedScene" path="res://scenes/components/blue_flower.tscn" id="12_t52m0"]
+[ext_resource type="PackedScene" uid="uid://brjow2eap2mrx" path="res://scenes/components/wind_flower.tscn" id="13_jxooh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfx8k"]
 texture = ExtResource("2_wejd8")
@@ -1057,3 +1058,6 @@ scale = Vector2(0.511086, 0.720003)
 
 [node name="blue-flower-1" parent="." instance=ExtResource("12_t52m0")]
 position = Vector2(369, -62)
+
+[node name="Flower" parent="." instance=ExtResource("13_jxooh")]
+position = Vector2(333, -63)

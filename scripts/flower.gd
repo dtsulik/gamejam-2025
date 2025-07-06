@@ -4,6 +4,7 @@ extends Area2D
 
 @export var is_red_flower: bool = true
 @export var is_blue_flower: bool = false
+@export var is_wind_flower: bool = false
 @export var pickup_message: String = "Flower collected!"
 
 var can_grab := true
@@ -18,6 +19,8 @@ func _ready():
 		$AnimatedSprite2D.play("default")
 	elif is_blue_flower:
 		$AnimatedSprite2D.play("blue_flower")
+	elif is_blue_flower:
+		$AnimatedSprite2D.play("wind_flower")
 
 func _on_body_entered(body: Node2D):
 	if body.name == "player":
@@ -39,6 +42,8 @@ func _input(event: InputEvent):
 			player_in_range.pickup_red_flower()
 		elif is_blue_flower:
 			player_in_range.pickup_blue_flower()
+		elif is_wind_flower:
+			player_in_range.pickup_wind_flower()
 
 		create_pickup_vfx()
 

@@ -18,13 +18,23 @@ extends CharacterBody2D
 @export var frostshot_speed := 100.0
 @export var frostshot_spawn_offset := 10.0
 
+# Frostshot
+@export var wind_scene: PackedScene
+@export var wind_speed := 100.0
+@export var wind_spawn_offset := 10.0
+
 # Power flags & ammo counts
 var has_fireball_ability := false
-var has_frostshot_ability := false
 var fireball_count := 0
 var max_fireball_count := 5
+
+var has_frostshot_ability := false
 var frostshot_count := 0
 var max_frostshot_count := 3
+
+var has_wind_ability := false
+var wind_count := 0
+var max_wind_count := 3
 
 # Movement
 var is_dashing := false
@@ -60,6 +70,15 @@ func _physics_process(delta):
 			shoot_frostshot()
 		else:
 			print("DEBUG: No frostshot ability")
+
+	# Frostshot
+	if Input.is_action_just_pressed("wind-push"):
+		print("DEBUG: Wind key pressed")
+		if has_wind_ability:
+			print("DEBUG: Wind ability active")
+			shoot_wind()
+		else:
+			print("DEBUG: No wind ability")
 
 	# Dash
 	if Input.is_action_just_pressed("dash") and not is_dashing:
@@ -150,6 +169,23 @@ func shoot_frostshot():
 	frostshot_count -= 1
 	print("DEBUG: Frostshot fired, remaining:", frostshot_count)
 
+func shoot_wind():
+	if not has_wind_ability or wind_count <= 0 or wind_scene == null:
+		print("DEBUG: Cannot shoot wind")
+		return
+
+	var wind = wind_scene.instantiate()
+	var sprite_node = $AnimatedSprite2D
+	var spawn_position = global_position + sprite_node.position
+	spawn_position.x += wind_spawn_offset * last_direction
+
+	wind.global_position = spawn_position
+	wind.setup(last_direction, wind_speed)
+
+	get_tree().current_scene.add_child(wind)
+	wind_count -= 1
+	print("DEBUG: Wind fired, remaining:", wind_count)
+
 # Power pickups
 func pickup_red_flower():
 	has_fireball_ability = true
@@ -160,3 +196,8 @@ func pickup_blue_flower():
 	has_frostshot_ability = true
 	frostshot_count = max_frostshot_count
 	print("Blue flower picked up! Frostshot ability granted with", frostshot_count, "shots")
+
+func pickup_wind_flower():
+	has_wind_ability = true
+	wind_count = max_wind_count
+	print("Wind flower picked up! Wind ability granted with", wind_count, "shots")

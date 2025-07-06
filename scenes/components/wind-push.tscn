@@ -1,0 +1,121 @@
+[gd_scene load_steps=18 format=3 uid="uid://djy23wiury0y7"]
+
+[ext_resource type="Script" uid="uid://duxhbiw1jkgbg" path="res://scripts/wind-push.gd" id="1_da723"]
+[ext_resource type="Texture2D" uid="uid://botdht22jr744" path="res://assets/effects/Effect and FX Pixel Part 12 Free/566.png" id="2_ytlwr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3s14c"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da723"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytlwr"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i0i0"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(128, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s18cg"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucehj"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7pbb"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(320, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dftvw"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(384, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaqgv"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(448, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayhra"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(512, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1pj1"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(576, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvram"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(640, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td20m"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(704, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg70w"]
+atlas = ExtResource("2_ytlwr")
+region = Rect2(768, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7iiyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da723")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytlwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i0i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s18cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucehj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7pbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dftvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaqgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayhra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1pj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvram")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td20m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg70w")
+}],
+"loop": false,
+"name": &"wind",
+"speed": 16.0
+}]
+
+[node name="wind-shot" type="CharacterBody2D"]
+script = ExtResource("1_da723")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -1.16415e-10)
+rotation = 1.57117
+shape = SubResource("CapsuleShape2D_3s14c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7iiyt")
+animation = &"wind"
