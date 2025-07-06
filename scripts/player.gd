@@ -2,6 +2,8 @@
 
 extends CharacterBody2D
 
+@onready var jump_sound = $player/sfx_jump
+
 @export var speed := 100.0
 @export var jump_velocity := -200.0
 @export var gravity := 800.0
@@ -56,9 +58,11 @@ func _physics_process(delta):
 			can_double_jump = true
 			if Input.is_action_just_pressed("jump"):
 				velocity.y = jump_velocity
+				jump_sound.play()
 		else:
 			if Input.is_action_just_pressed("jump") and can_double_jump:
 				velocity.y = jump_velocity
+				jump_sound.play()
 				can_double_jump = false
 				$AnimatedSprite2D.play("double_jump")
 
