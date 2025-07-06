@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bygple03fg7nv"]
+[gd_scene load_steps=16 format=3 uid="uid://cfg8dm26rfirj"]
 
 [ext_resource type="PackedScene" uid="uid://d23fpdac22dyt" path="res://player.tscn" id="1_wubvj"]
 [ext_resource type="Texture2D" uid="uid://bl8rub6tim37b" path="res://assets/environment/stringstar fields/background_0.png" id="2_wejd8"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cvd1up6sr6oli" path="res://assets/environment/oak_woods_v1.0/oak_woods_tileset.png" id="4_ht1ge"]
 [ext_resource type="Texture2D" uid="uid://uiu8s7mxj0cc" path="res://assets/environment/stringstar fields/background_2.png" id="5_0ev7p"]
 [ext_resource type="PackedScene" uid="uid://dbg61bd0sfji0" path="res://scenes/components/flower.tscn" id="6_t52m0"]
-[ext_resource type="PackedScene" uid="uid://bjn02jlng8c18" path="res://scenes/components/watefall.tscn" id="7_jxooh"]
-[ext_resource type="PackedScene" uid="uid://wk64hjvqlsmk" path="res://scenes/components/watefall-no-foam.tscn" id="8_2ovie"]
+[ext_resource type="PackedScene" path="res://scenes/components/watefall.tscn" id="7_jxooh"]
+[ext_resource type="PackedScene" path="res://scenes/components/watefall-no-foam.tscn" id="8_2ovie"]
 [ext_resource type="Texture2D" uid="uid://dybv73mcy1o1s" path="res://assets/forest/evening/tileset.png" id="8_wejd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfx8k"]
