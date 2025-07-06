@@ -8,8 +8,13 @@ extends CharacterBody2D
 
 # Fireball settings
 @export var fireball_scene: PackedScene
-@export var fireball_speed := 400.0
-@export var fireball_spawn_offset := 50.0  # How far in front of player to spawn
+@export var fireball_speed := 200.0
+@export var fireball_spawn_offset := 40.0
+
+# Fireball pickup system
+var has_fireball_ability := false
+var fireball_count := 0
+var max_fireball_count := 5
 
 var is_dashing := false
 var dash_timer := 0.0
@@ -28,8 +33,12 @@ func _physics_process(delta):
 		if direction != 0:
 			last_direction = direction
 	
-	# Fireball shooting
+	# DEBUG: Print when fire button is pressed
 	if Input.is_action_just_pressed("fire"):
+		print("Fire button pressed! Has ability: ", has_fireball_ability, " Count: ", fireball_count)
+	
+	# Fireball shooting - only if player has the ability
+	if Input.is_action_just_pressed("fire") and has_fireball_ability:
 		shoot_fireball()
 	
 	# Trigger dash
@@ -86,29 +95,50 @@ func update_animation():
 		sprite.play("idle")
 
 func shoot_fireball():
+	print("shoot_fireball() called")
+	
+	# Check if player has ability and ammo
+	if not has_fireball_ability or fireball_count <= 0:
+		print("Cannot shoot fireball! Has ability: ", has_fireball_ability, " Count: ", fireball_count)
+		return
+	
 	if not fireball_scene:
 		print("ERROR: No fireball scene assigned!")
 		return
-
+	
+	print("Creating fireball...")
+	
 	# Create fireball instance
 	var fireball = fireball_scene.instantiate()
-
+	
 	# Use the player sprite's center as a spawn reference
 	var sprite = $AnimatedSprite2D
 	var sprite_center = global_position + sprite.position
-
+	
 	# Calculate horizontal offset
 	var spawn_position = sprite_center
 	spawn_position.x += fireball_spawn_offset * last_direction
-
-	# Optional: fine-tune vertical offset if needed
-	# spawn_position.y += some_value  # e.g. -10 for hand height
-
+	
 	# Add fireball to the scene
 	get_tree().current_scene.add_child(fireball)
-
+	
 	# Set fireball properties
 	fireball.global_position = spawn_position
 	fireball.setup(last_direction, fireball_speed)
+	
+	# Decrease ammo count
+	fireball_count -= 1
+	
+	print("Fireball shot! Remaining: ", fireball_count)
 
-	print("Fireball shot at: ", spawn_position, " direction: ", last_direction)
+# Called when player picks up the red flower
+func pickup_red_flower():
+	print("pickup_red_flower() called")
+	has_fireball_ability = true
+	fireball_count = 5
+	print("Red flower picked up! Can now shoot 5 fireballs!")
+	print("Current state - Has ability: ", has_fireball_ability, " Count: ", fireball_count)
+
+# For checking if player can shoot (useful for UI)
+func can_shoot_fireball() -> bool:
+	return has_fireball_ability and fireball_count > 0

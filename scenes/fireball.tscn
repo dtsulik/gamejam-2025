@@ -165,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nxa2u")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 32.0
 }, {
@@ -228,4 +228,3 @@ shape = SubResource("CapsuleShape2D_3s14c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, 1)
 sprite_frames = SubResource("SpriteFrames_7iiyt")
-animation = &"explode"
