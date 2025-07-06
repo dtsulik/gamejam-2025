@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ca4is3eeirdsa"]
 
-[ext_resource type="Script" uid="uid://bvq8ii3y850ti" path="res://scripts/thorn.gd" id="1_rphs4"]
+[ext_resource type="Script" path="res://scripts/thorn.gd" id="1_rphs4"]
 [ext_resource type="Texture2D" uid="uid://bddc3v0j7n6g1" path="res://assets/environment/stringstar fields/ChatGPT Image Jul 6, 2025, 12_53_47 PM.png" id="1_ss7ns"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rphs4"]

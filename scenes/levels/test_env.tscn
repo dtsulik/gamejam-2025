@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cvd1up6sr6oli" path="res://assets/environment/oak_woods_v1.0/oak_woods_tileset.png" id="4_bdewd"]
 [ext_resource type="Texture2D" uid="uid://uiu8s7mxj0cc" path="res://assets/environment/stringstar fields/background_2.png" id="4_x6e60"]
 [ext_resource type="PackedScene" uid="uid://dbg61bd0sfji0" path="res://scenes/components/flower.tscn" id="6_nk8s5"]
+[ext_resource type="PackedScene" uid="uid://ca4is3eeirdsa" path="res://scenes/components/thorn.tscn" id="7_t6xg4"]
+[ext_resource type="PackedScene" uid="uid://cl858d81pfklp" path="res://scenes/components/killzone.tscn" id="8_4hnf6"]
 [ext_resource type="PackedScene" uid="uid://ca4is3eeirdsa" path="res://scenes/thorn.tscn" id="7_t6xg4"]
 [ext_resource type="PackedScene" uid="uid://cl858d81pfklp" path="res://scripts/killzone.tscn" id="8_4hnf6"]
 [ext_resource type="AudioStream" uid="uid://c4bdso5fpw2tp" path="res://assets/Sounds/midnight-forest-184304.mp3" id="9_qxx5k"]
