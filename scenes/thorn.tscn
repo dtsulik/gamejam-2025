@@ -1,27 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca4is3eeirdsa"]
+[gd_scene load_steps=9 format=3 uid="uid://ca4is3eeirdsa"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rjqd1"]
-load_path = "res://.godot/imported/ChatGPT Image Jul 6, 2025, 11_25_47 AM.png-fd41e0f96515562b65147b0eb10ac2a2.ctex"
+[ext_resource type="Script" uid="uid://bvq8ii3y850ti" path="res://scripts/thorn.gd" id="1_rphs4"]
+[ext_resource type="Texture2D" uid="uid://bddc3v0j7n6g1" path="res://assets/environment/stringstar fields/ChatGPT Image Jul 6, 2025, 12_53_47 PM.png" id="1_ss7ns"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ss7ns"]
-atlas = SubResource("CompressedTexture2D_rjqd1")
-region = Rect2(0, 0, 384, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rphs4"]
+atlas = ExtResource("1_ss7ns")
+region = Rect2(256, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vjp6"]
+atlas = ExtResource("1_ss7ns")
+region = Rect2(512, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok5fr"]
+atlas = ExtResource("1_ss7ns")
+region = Rect2(768, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grjus"]
+atlas = ExtResource("1_ss7ns")
+region = Rect2(0, 0, 256, 1024)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rjqd1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ss7ns")
+"texture": SubResource("AtlasTexture_rphs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vjp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok5fr")
 }],
-"loop": true,
-"name": &"new_animation",
+"loop": false,
+"name": &"burning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grjus")
+}],
+"loop": false,
+"name": &"idle",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss7ns"]
+size = Vector2(6.25, 76)
+
 [node name="Thorn" type="CharacterBody2D"]
+script = ExtResource("1_rphs4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_rjqd1")
-animation = &"new_animation"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_ss7ns")
