@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bygple03fg7nv"]
+[gd_scene load_steps=22 format=3 uid="uid://bygple03fg7nv"]
 
 [ext_resource type="PackedScene" uid="uid://d23fpdac22dyt" path="res://player.tscn" id="1_wubvj"]
 [ext_resource type="Texture2D" uid="uid://bl8rub6tim37b" path="res://assets/environment/stringstar fields/background_0.png" id="2_wejd8"]
@@ -13,9 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ca4is3eeirdsa" path="res://scenes/components/thorn.tscn" id="11_0ev7p"]
 [ext_resource type="PackedScene" uid="uid://j3bs31rbkmum" path="res://scenes/components/blue_flower.tscn" id="12_t52m0"]
 [ext_resource type="PackedScene" path="res://scenes/components/wind_flower.tscn" id="13_jxooh"]
-[ext_resource type="AudioStream" uid="uid://c4bdso5fpw2tp" path="res://assets/Sounds/midnight-forest-184304.mp3" id="14_6gxdu"]
 [ext_resource type="Texture2D" uid="uid://s2o37i8xvy3e" path="res://assets/environment/oak_woods_v1.0/decorations/lamp.png" id="15_ixq74"]
-[ext_resource type="Texture2D" uid="uid://ir5h7ymrab44" path="res://assets/environment/oak_woods_v1.0/decorations/rock_2.png" id="17_plvqx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfx8k"]
 texture = ExtResource("2_wejd8")
@@ -956,7 +954,7 @@ sources/0 = SubResource("TileSetAtlasSource_2ovie")
 [node name="level-1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wubvj")]
-position = Vector2(182, -65)
+position = Vector2(259, -63)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(118, -54)
@@ -976,10 +974,23 @@ position = Vector2(205, -1.52588e-05)
 scale = Vector2(1.22222, 1.24444)
 texture = ExtResource("2_wejd8")
 
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(205, 224)
+scale = Vector2(1.22222, 1.24444)
+texture = ExtResource("2_wejd8")
+flip_v = true
+
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(562, 0)
 scale = Vector2(1.27083, 1.24444)
 texture = ExtResource("2_wejd8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(556, 224)
+scale = Vector2(1.27083, 1.24444)
+texture = ExtResource("2_wejd8")
+flip_h = true
+flip_v = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.8, 1)
@@ -987,6 +998,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(-248, -224)
+scale = Vector2(1.0625, 1)
 texture = ExtResource("5_0ev7p")
 centered = false
 
@@ -1060,20 +1072,12 @@ position = Vector2(1122, -37)
 scale = Vector2(0.511086, 0.720003)
 
 [node name="blue-flower-1" parent="." instance=ExtResource("12_t52m0")]
-position = Vector2(524, -64)
+position = Vector2(527, -63)
 
 [node name="Flower" parent="." instance=ExtResource("13_jxooh")]
-position = Vector2(343, -63)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_6gxdu")
-autoplay = true
+position = Vector2(333, -63)
 
 [node name="Lamp" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(282, -81)
+position = Vector2(226, -82)
 texture = ExtResource("15_ixq74")
-
-[node name="Rock2" type="Sprite2D" parent="."]
-position = Vector2(1182, -60)
-texture = ExtResource("17_plvqx")
