@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var jump_sound = $sfx_jump
+@onready var attack_sound = $sfx_attack
 
 @export var speed := 100.0
 @export var jump_velocity := -200.0
@@ -149,6 +150,9 @@ func shoot_fireball():
 	fireball.setup(last_direction, fireball_speed)
 
 	get_tree().current_scene.add_child(fireball)
+	if attack_sound:
+		attack_sound.play()
+	
 	fireball_count -= 1
 	print("DEBUG: Fireball shot, remaining:", fireball_count)
 
@@ -166,6 +170,9 @@ func shoot_frostshot():
 	frost.setup(last_direction, frostshot_speed)
 
 	get_tree().current_scene.add_child(frost)
+	if attack_sound:
+		attack_sound.play()
+
 	frostshot_count -= 1
 	print("DEBUG: Frostshot fired, remaining:", frostshot_count)
 
@@ -183,6 +190,9 @@ func shoot_wind():
 	wind.setup(last_direction, wind_speed)
 
 	get_tree().current_scene.add_child(wind)
+	if attack_sound:
+		attack_sound.play()
+
 	wind_count -= 1
 	print("DEBUG: Wind fired, remaining:", wind_count)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://d23fpdac22dyt"]
+[gd_scene load_steps=70 format=3 uid="uid://d23fpdac22dyt"]
 
 [ext_resource type="Script" uid="uid://4recusy0itkw" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://3l4w5vylp2k" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_1_Cat_Idle-Sheet.png" id="2_g2els"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://lo0corxqechl" path="res://assets/player/CatCharacterAnimations1.1/SpriteSheets/Outlined_20_Cat_Pull-Sheet.png" id="7_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://bluqkv6h6u6tm" path="res://assets/Sounds/03_Step_grass_03.wav" id="11_ivps1"]
 [ext_resource type="AudioStream" uid="uid://dlko2w8bew2do" path="res://assets/Sounds/30_Jump_03.wav" id="12_urp6f"]
+[ext_resource type="AudioStream" uid="uid://b2yk36yh3h4fe" path="res://assets/Sounds/56_Attack_03.wav" id="15_606se"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
 atlas = ExtResource("2_tuyoq")
@@ -471,3 +472,6 @@ stream = ExtResource("11_ivps1")
 
 [node name="sfx_jump" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource("12_urp6f")
+
+[node name="sfx_attack" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("15_606se")
