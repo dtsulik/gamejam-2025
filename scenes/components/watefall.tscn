@@ -1,0 +1,443 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjn02jlng8c18"]
+
+[ext_resource type="Texture2D" uid="uid://ckhvsws01w52n" path="res://assets/water/8bit-water-texture-sq.png" id="1_pqahh"]
+[ext_resource type="Texture2D" uid="uid://dxyg0lqijvrk2" path="res://assets/clouds/clouds-v2.png" id="2_kemwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k5ro"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnsb4"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_144ce"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydcgj"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awghr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_144ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydcgj")
+}],
+"loop": true,
+"name": &"side-waves-A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydcgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_144ce")
+}],
+"loop": true,
+"name": &"side-waves-B",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxyp"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awghr"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dspej"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23l4p"]
+atlas = ExtResource("1_pqahh")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rflv4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awghr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dspej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23l4p")
+}],
+"loop": true,
+"name": &"inside-waves-A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awghr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23l4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dspej")
+}],
+"loop": true,
+"name": &"inside-waves-B",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8elta"]
+atlas = ExtResource("2_kemwe")
+region = Rect2(64, 84, 64, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6867j"]
+atlas = ExtResource("2_kemwe")
+region = Rect2(0, 84, 64, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucurs"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_8elta")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_6867j")
+}],
+"loop": true,
+"name": &"foam-A",
+"speed": 5.0
+}]
+
+[node name="waterfall" type="Node2D"]
+rotation = 1.5708
+
+[node name="left-wave-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(8.30516e-07, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-A"
+autoplay = "side-waves-A"
+speed_scale = 0.5
+flip_v = true
+
+[node name="left-wave-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-B"
+autoplay = "side-waves-B"
+speed_scale = 0.5
+flip_v = true
+
+[node name="left-wave-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-A"
+autoplay = "side-waves-A"
+speed_scale = 0.5
+flip_v = true
+
+[node name="left-wave-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 19)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-B"
+autoplay = "side-waves-B"
+speed_scale = 0.5
+flip_v = true
+
+[node name="right-wave-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.17939e-07, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-B"
+autoplay = "side-waves-B"
+speed_scale = 0.5
+
+[node name="right-wave-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-B"
+autoplay = "side-waves-A"
+speed_scale = 0.5
+
+[node name="right-wave-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-B"
+autoplay = "side-waves-B"
+speed_scale = 0.5
+
+[node name="right-wave-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -21)
+sprite_frames = SubResource("SpriteFrames_awghr")
+animation = &"side-waves-A"
+autoplay = "side-waves-A"
+speed_scale = 0.5
+
+[node name="inside-waves-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+flip_v = true
+
+[node name="inside-waves-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+flip_v = true
+
+[node name="inside-waves-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+flip_v = true
+
+[node name="inside-waves-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 3)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+flip_v = true
+
+[node name="inside-waves-5" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+
+[node name="inside-waves-6" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+
+[node name="inside-waves-7" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+
+[node name="inside-waves-8" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 11)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+
+[node name="inside-waves-9" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.68248e-07, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+flip_v = true
+
+[node name="inside-waves-10" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+flip_v = true
+
+[node name="inside-waves-11" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+flip_v = true
+
+[node name="inside-waves-12" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -13)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-A"
+autoplay = "inside-waves-A"
+flip_v = true
+
+[node name="inside-waves-13" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.18557e-07, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+
+[node name="inside-waves-14" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+
+[node name="inside-waves-15" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+
+[node name="inside-waves-16" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -5)
+sprite_frames = SubResource("SpriteFrames_rflv4")
+animation = &"inside-waves-B"
+autoplay = "inside-waves-B"
+
+[node name="bubbles-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.89992, 4.8)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.10008, 7.8)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.10008, 0.800003)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-4" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.89992, -2.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.20008, -7.4)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-6" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.89992, -10.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.20008, -15.4)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-8" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.89984, -19.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-9" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.10008, -23.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-10" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.89981, -28.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-11" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.899808, -29.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+frame = 1
+frame_progress = 0.13612
+offset = Vector2(-42, -12)
+
+[node name="bubbles-12" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.89979, -34.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-13" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.10022, -36.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+
+[node name="bubbles-14" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.1002, -30.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
+
+[node name="bubbles-15" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.899848, -18.2)
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ucurs")
+animation = &"foam-A"
+autoplay = "foam-A"
+offset = Vector2(-42, -12)
+flip_v = true
